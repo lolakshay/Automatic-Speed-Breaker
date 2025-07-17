@@ -9,7 +9,7 @@ typedef struct {
 
 Message receivedData;
 
-// ✅ Updated function signature
+// Updated function signature
 void onReceiveData(const esp_now_recv_info_t *info, const uint8_t *incomingData, int len) {
     memcpy(&receivedData, incomingData, sizeof(receivedData));
     Serial.print("Received LED State: ");
@@ -31,7 +31,7 @@ void setup() {
         return;
     }
 
-    // ✅ Fix: Register receive callback with correct function signature
+    // Fix: Register receive callback with correct function signature
     esp_now_register_recv_cb(onReceiveData);
 }
 
